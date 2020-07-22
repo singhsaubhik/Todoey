@@ -1,0 +1,27 @@
+.add-todo {
+  width: 80%;
+  display: flex;
+  margin-top: 5rem;
+  padding: 0 2rem;
+  font-size: 1.6rem;
+}
+
+.add-todo button {
+  height: 50px;
+  margin-left: 1rem;
+  font-size: 1.6rem;
+}
+
+.add-todo form{
+
+  display: flex;
+  height: 60px;
+  width: 40%;
+  font-size: 2rem;
+}
+
+.add-todo input{
+  font-size: 2rem;
+  height: 50px;
+  width: 80%;
+}

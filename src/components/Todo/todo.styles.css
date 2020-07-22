@@ -1,0 +1,32 @@
+.todo {
+  font-size: 1.6rem;
+  background-color: rgb(24, 28, 36);
+  color: white;
+}
+
+.todo button {
+  font-size: 1.6rem;
+}
+
+.todo .edit-button {
+  background-color: blue;
+  color: white;
+  margin-right: 1rem;
+}
+
+.todo h3 {
+  font-size: 2.5rem;
+}
+
+.todo .index {
+  margin-right: 2rem;
+  color: rgba(255, 255, 255, 0.719);
+  text-align: center;
+  margin-top: auto;
+  margin-bottom: auto;
+
+}
+
+.todo .index-title {
+  display: flex;
+}
