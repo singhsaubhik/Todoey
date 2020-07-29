@@ -17,7 +17,8 @@ Todoey is a material design Todo application for new web developer, obviously fo
 Use the package manager [npm](https://www.npmjs.com/)/[yarn](https://yarnpkg.com/) to install dockman.
 
 ```bash
-npm install
+$ npm install
+$ npm start
 ```
 
 ## Features
@@ -25,6 +26,7 @@ npm install
 - Easy implementation
 - Using latest react technology with simplest implementation ie: Redux
 - Built using [Sass](https://www.sass.org)
+- Saves todos in your **Local Storage**, so that next time you come todos are there. If you want you can change this with actual backend
 
 
 ## Contributing
