@@ -1,21 +1,21 @@
 import React from "react";
 import Todo from "../Todo/todo.component";
-import "./todo-list.styles.css";
+import "./todo-list.styles.scss";
 
 const TodoList = (props) => {
-  const isTodos = props.todos ? true : false;
+  const isTodos = props.todos.length > 0 ? true : false;
 
   return (
-    <div className="todo-list-parent">
-      <div className="alert container"><h1>Todos</h1></div>
+    <div className="todo-list bg-card">
+      <h1>Todos</h1>
       {isTodos ? (
         props.todos.map((todo, index) => (
-          <div key={todo.id} style={{ marginBottom: "1rem" }}>
-            <Todo todo={todo} index={++index}/>
+          <div key={todo.id}>
+            <Todo todo={todo} index={++index} />
           </div>
         ))
       ) : (
-          <p>Add Todos to render here</p>
+          <h2>Add Todos to render here</h2>
         )}
     </div>
   );

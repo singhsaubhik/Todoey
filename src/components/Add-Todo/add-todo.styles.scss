@@ -1,0 +1,46 @@
+.add-todo {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  width: 70%;
+  padding: 1rem 4rem;
+
+  &__title {
+    text-align: center;
+  }
+
+  &__forms {
+    padding: 1rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 10rem 0;
+
+    .btn {
+      all: unset;
+      padding: 1rem 1rem;
+      margin: 1rem;
+      width: 15rem;
+      font-size: 1.8rem;
+      text-align: center;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      background-color: blue;
+    }
+
+    &_text_input {
+      font-size: 2rem;
+      height: 5rem;
+      width: 50rem;
+
+      border-radius: 5px;
+      border: none;
+      padding: 0.5rem;
+
+      &:focus{
+        border: blue;
+      }
+    }
+  }
+}

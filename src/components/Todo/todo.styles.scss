@@ -1,0 +1,62 @@
+.todo {
+  font-size: 1.6rem;
+  background-color: rgb(24, 28, 36);
+  color: white;
+  border-radius: .5rem;
+  height: 6rem;
+  margin: .5rem 0;
+
+  display: flex;
+  align-items: center;
+
+  &__index {
+    margin: 0 1rem;
+  }
+
+  &__title {
+    margin: 0 5rem;
+  }
+
+  &__controls {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    margin: 0 3rem;
+  }
+
+  .color_blue{
+    background-color: blue;
+  }
+
+  .color_red{
+    background-color: red;
+  }
+
+  .btn_blue {
+    all: unset;
+    padding: 0.8rem 1rem;
+    width: 10rem;
+    font-size: 1.8rem;
+    text-align: center;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    margin: 1rem;
+    background-color: blue;
+  }
+
+  .btn_red {
+    all: unset;
+    padding: 0.8rem 1rem;
+    width: 10rem;
+    font-size: 1.8rem;
+    text-align: center;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    margin: 1rem;
+    background-color: red;
+  }
+}
+
+.todo h3 {
+  font-size: 2.5rem;
+}

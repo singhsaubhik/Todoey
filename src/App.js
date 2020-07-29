@@ -1,18 +1,18 @@
 import React, { Component } from "react";
 import { NavLink, Switch, Route, Redirect } from "react-router-dom";
-import { connect } from "react-redux"
+import { connect } from "react-redux";
 import shortid from "shortid";
 
-import "./App.css";
+import "./App.scss";
 import TodoList from "./components/Todo-list/todo-list.component";
 import Context from "./context/context";
 import AddTodo from "./components/Add-Todo/add-todo.component";
-import { TODO_ACTIONS } from "./redux/todo/todo.reducer"
+import { TODO_ACTIONS } from "./redux/todo/todo.reducer";
 
-import { ReactComponent as Logo} from "./assets/logo.svg"
+import { ReactComponent as Logo } from "./assets/logo.svg";
 
 class App extends Component {
-  
+
 
   addTodoHandler = (todoTitle) => {
     let todos = [];
@@ -20,10 +20,10 @@ class App extends Component {
       todos = [...this.props.todos];
     }
 
-    const todo = { id: shortid.generate(), title: todoTitle }
+    const todo = { id: shortid.generate(), title: todoTitle };
     todos.push(todo);
 
-    this.props.onAddTodo(todos)
+    this.props.onAddTodo(todos);
 
     this.setState({ todos });
     localStorage.setItem("todos", JSON.stringify(todos));
@@ -43,7 +43,7 @@ class App extends Component {
     const todos = [...this.props.todos];
     todos.splice(todoIndex, 1);
 
-    this.props.onDeleteTodo(todos)
+    this.props.onDeleteTodo(todos);
 
     this.setState({ todos });
     localStorage.setItem("todos", JSON.stringify(todos));
@@ -54,14 +54,14 @@ class App extends Component {
     const todos = [...this.props.todos];
     todos[todoIndex] = todo;
 
-    this.props.onEditTodo(todos)
+    this.props.onEditTodo(todos);
     this.setState({ todos });
     localStorage.setItem("todos", JSON.stringify(todos));
   };
 
   componentDidMount() {
     const todos = JSON.parse(localStorage.getItem("todos"));
-    this.props.onAddTodos(todos)
+    this.props.onAddTodos(todos);
   }
 
   render() {
@@ -74,23 +74,24 @@ class App extends Component {
           editTodoHandler: this.editTodoHandler,
         }}
       >
-        <div className="App">
-          <header>
-            <Logo className="App__logo"/>
+        <div className="App bg-dark">
+          <header className="App__header">
+            <Logo className="App__logo" />
             <NavLink to="/home">Home</NavLink>
             <NavLink to="/todo/add">Add Todo</NavLink>
-            <NavLink to="/todo/edit">Edit</NavLink>
           </header>
-          <Switch>
-            <Route
-              path="/home"
-              render={() => <TodoList todos={this.props.todos} />}
-            />
-            <Route path="/todo/add" component={AddTodo} />
-            <Route path="/todo/edit/:id" render={() => <AddTodo isEdit={true} todos={this.props.todos} />} />
+          <div className="App__main">
+            <Switch>
+              <Route
+                path="/home"
+                render={() => <TodoList todos={this.props.todos} />}
+              />
+              <Route path="/todo/add" component={AddTodo} />
+              <Route path="/todo/edit/:id" render={() => <AddTodo isEdit={true} todos={this.props.todos} />} />
 
-            <Redirect to="/home" from="/" exact />
-          </Switch>
+              <Redirect to="/home" from="/" exact />
+            </Switch>
+          </div>
         </div>
       </Context.Provider>
     );
@@ -100,8 +101,8 @@ class App extends Component {
 const mapStateToProps = (state) => {
   return {
     todos: state.todos
-  }
-}
+  };
+};
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -109,6 +110,6 @@ const mapDispatchToProps = (dispatch) => {
     onAddTodos: (todos) => dispatch({ type: TODO_ACTIONS.ADD_ALL_TODOS, payload: { todos } }),
     onDeleteTodo: (todos) => dispatch({ type: TODO_ACTIONS.DELETE_TODO, payload: { todos } }),
     onEditTodo: (todos) => dispatch({ type: TODO_ACTIONS.EDIT_TODO, payload: { todos } })
-  }
-}
+  };
+};
 export default connect(mapStateToProps, mapDispatchToProps)(App);
