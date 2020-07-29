@@ -3,7 +3,8 @@ import Todo from "../Todo/todo.component";
 import "./todo-list.styles.scss";
 
 const TodoList = (props) => {
-  const isTodos = props.todos.length > 0 ? true : false;
+  const isTodos =  (props.todos && props.todos.length > 0);
+
 
   return (
     <div className="todo-list bg-card">
