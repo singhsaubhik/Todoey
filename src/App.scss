@@ -1,12 +1,13 @@
 .App {
   font-size: 1.6rem;
-  height: 100vh;
+  min-height: 100vh;
   background: linear-gradient(180deg, #000000 0%, #464646 100%);
 
   &__main {
     display: flex;
     justify-content: center;
-    height: 85%;
+    height: 80vh;
+    margin-bottom: 3rem;
   }
 
   &__header {
@@ -14,7 +15,7 @@
     padding: 0 3rem;
     color: white;
     height: 6rem;
-    margin-bottom: 40px;
+    margin-bottom: 3rem;
     align-items: center;
     display: flex;
   }
