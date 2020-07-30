@@ -37,6 +37,7 @@ Please make sure to update tests as appropriate.
 ## Credits
 
 * [Google Fonts](https://fonts.google.com/)
+* [FontAwesome](https://fontawesome.com/)
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)

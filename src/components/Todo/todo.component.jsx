@@ -4,8 +4,32 @@ import TodoContext from "../../context/context";
 
 import "./todo.styles.scss";
 
+import { ReactComponent as EditIcon } from "../../assets/edit.svg";
+import { ReactComponent as DeleteIcon } from "../../assets/delete.svg";
+
 const Todo = (props) => {
   const todoContext = useContext(TodoContext);
+
+  const windowWidth = window.screen.width;
+
+  const deleteButton = (
+    windowWidth > 768 ? <button
+      className="btn_red"
+      onClick={() => todoContext.deleteTodoHandler(props.todo)}
+    >
+      Delete
+    </button> : <DeleteIcon className="todo__icon" style={{ marginLeft: "2rem" }} />
+  );
+
+  const editButton = (
+    windowWidth > 768 ? <button
+      className="btn_blue"
+      onClick={() => props.history.push("/todo/edit/" + props.todo.id, ["Hello"])}
+    >
+      Edit
+    </button> : <EditIcon className="todo__icon" />
+  );
+
 
   return (
     <div className="todo">
@@ -14,52 +38,17 @@ const Todo = (props) => {
       </div>
 
       <div className="todo__title">
-        <h3>{props.todo.title}</h3>
+        <span>{props.todo.title}</span>
       </div>
 
       <div className="todo__controls">
-        <button
-          className="btn_blue"
-          onClick={() => props.history.push("/todo/edit/" + props.todo.id, ["Hello"])}
-        >
-          Edit
-          </button>
+        {editButton}
 
-        <button
-          className="btn_red"
-          onClick={() => todoContext.deleteTodoHandler(props.todo)}
-        >
-          Delete
-                    </button>
+
+        {deleteButton}
       </div>
     </div>
   );
 };
-
-// {
-//   <div className="row">
-//         <div className="col-9">
-//           <div className="index-title">
-//             <h4 className="index">{props.index}</h4>
-//             <h3>{props.todo.title}</h3>
-//           </div>
-
-//         </div>
-//         <div className="col-3 btn-group">
-//           <button
-//             className="edit-button btn"
-//             onClick={() => props.history.push("/todo/edit/" + props.todo.id, ["Hello"])}
-//           >
-//             Edit
-//           </button>
-//           <button
-//             className="btn btn-danger"
-//             onClick={() => todoContext.deleteTodoHandler(props.todo)}
-//           >
-//             Delete
-//           </button>
-//         </div>
-//       </div>
-// }
 
 export default withRouter(Todo);

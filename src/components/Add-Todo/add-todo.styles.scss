@@ -43,4 +43,28 @@
       }
     }
   }
+
+  @media (max-width: 768px) {
+    &__forms_text_input {
+      font-size: 2rem;
+      height: 5rem;
+      width: 30rem;
+
+      border-radius: 5px;
+      border: none;
+      padding: 0.5rem;
+    }
+
+    .btn {
+      all: unset;
+      padding: 1rem 1rem;
+      margin: 1rem;
+      width: 10rem;
+      font-size: 1.8rem;
+      text-align: center;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      background-color: blue;
+    }
+  }
 }
